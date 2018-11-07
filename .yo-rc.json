@@ -1,0 +1,40 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.isi.hospitalmanager",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "5.6.1",
+    "applicationType": "monolith",
+    "baseName": "hospitalmanager",
+    "packageName": "com.isi.hospitalmanager",
+    "packageFolder": "com/isi/hospitalmanager",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "MmFkNWJiNjMyYjcxYWE4ZmU5ZDMzYzY1N2NkMWU5NDBlZTZiYzQ4ZjY2MTM2ZDA3NTBlNjZiNTBmYjA2MWIyNDFkN2JkOGU4OWJlNGEzNTYwMWUyOWMzMGIyZTFiZjJjZGZmZDk0NjM0NzhlNjM3MzFiMDJjODA0NGZlZTE3OGI=",
+    "clientFramework": "angularX",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [
+      "gatling"
+    ],
+    "jhiPrefix": "jhi",
+    "enableTranslation": true,
+    "nativeLanguage": "en",
+    "languages": [
+      "en",
+      "ar-ly",
+      "fr"
+    ]
+  }
+}
