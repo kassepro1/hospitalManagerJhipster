@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Hospitalisation.
+    -->
+    <changeSet id="20181121174821-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="type_hospitalisation_id"
+                                 baseTableName="hospitalisation"
+                                 constraintName="fk_hospitalisation_type_hospitalisation_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="type_hospitalisation"/>
+
+    </changeSet>
+</databaseChangeLog>

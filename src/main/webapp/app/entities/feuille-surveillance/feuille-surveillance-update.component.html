@@ -1,0 +1,76 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-feuille-surveillance-heading" jhiTranslate="hospitalmanagerApp.feuilleSurveillance.home.createOrEditLabel">Create or edit a Feuille Surveillance</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!feuilleSurveillance.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="feuilleSurveillance.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalmanagerApp.feuilleSurveillance.heure" for="field_heure">Heure</label>
+                    <div class="input-group">
+                        <input id="field_heure" type="text" class="form-control" name="heure" ngbDatepicker  #heureDp="ngbDatepicker" [(ngModel)]="feuilleSurveillance.heure"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="heureDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalmanagerApp.feuilleSurveillance.pouls" for="field_pouls">Pouls</label>
+                    <input type="text" class="form-control" name="pouls" id="field_pouls"
+                        [(ngModel)]="feuilleSurveillance.pouls" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalmanagerApp.feuilleSurveillance.pa" for="field_pa">Pa</label>
+                    <input type="text" class="form-control" name="pa" id="field_pa"
+                        [(ngModel)]="feuilleSurveillance.pa" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalmanagerApp.feuilleSurveillance.temperature" for="field_temperature">Temperature</label>
+                    <input type="text" class="form-control" name="temperature" id="field_temperature"
+                        [(ngModel)]="feuilleSurveillance.temperature" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalmanagerApp.feuilleSurveillance.freqRespi" for="field_freqRespi">Freq Respi</label>
+                    <input type="text" class="form-control" name="freqRespi" id="field_freqRespi"
+                        [(ngModel)]="feuilleSurveillance.freqRespi" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalmanagerApp.feuilleSurveillance.diurese" for="field_diurese">Diurese</label>
+                    <input type="text" class="form-control" name="diurese" id="field_diurese"
+                        [(ngModel)]="feuilleSurveillance.diurese" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalmanagerApp.feuilleSurveillance.globeUterin" for="field_globeUterin">Globe Uterin</label>
+                    <input type="text" class="form-control" name="globeUterin" id="field_globeUterin"
+                        [(ngModel)]="feuilleSurveillance.globeUterin" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalmanagerApp.feuilleSurveillance.observation" for="field_observation">Observation</label>
+                    <input type="text" class="form-control" name="observation" id="field_observation"
+                        [(ngModel)]="feuilleSurveillance.observation" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalmanagerApp.feuilleSurveillance.hospitalisation" for="field_hospitalisation">Hospitalisation</label>
+                    <select class="form-control" id="field_hospitalisation" name="hospitalisation" [(ngModel)]="feuilleSurveillance.hospitalisation" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="hospitalisationOption.id === feuilleSurveillance.hospitalisation?.id ? feuilleSurveillance.hospitalisation : hospitalisationOption" *ngFor="let hospitalisationOption of hospitalisations; trackBy: trackHospitalisationById">{{hospitalisationOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

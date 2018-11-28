@@ -1,0 +1,71 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-hospitalisation-heading" jhiTranslate="hospitalmanagerApp.hospitalisation.home.createOrEditLabel">Create or edit a Hospitalisation</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!hospitalisation.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="hospitalisation.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalmanagerApp.hospitalisation.dateEntree" for="field_dateEntree">Date Entree</label>
+                    <div class="input-group">
+                        <input id="field_dateEntree" type="text" class="form-control" name="dateEntree" ngbDatepicker  #dateEntreeDp="ngbDatepicker" [(ngModel)]="hospitalisation.dateEntree"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateEntreeDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalmanagerApp.hospitalisation.motifEntree" for="field_motifEntree">Motif Entree</label>
+                    <input type="text" class="form-control" name="motifEntree" id="field_motifEntree"
+                        [(ngModel)]="hospitalisation.motifEntree" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalmanagerApp.hospitalisation.dateSortie" for="field_dateSortie">Date Sortie</label>
+                    <div class="input-group">
+                        <input id="field_dateSortie" type="text" class="form-control" name="dateSortie" ngbDatepicker  #dateSortieDp="ngbDatepicker" [(ngModel)]="hospitalisation.dateSortie"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateSortieDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalmanagerApp.hospitalisation.motifSortie" for="field_motifSortie">Motif Sortie</label>
+                    <input type="text" class="form-control" name="motifSortie" id="field_motifSortie"
+                        [(ngModel)]="hospitalisation.motifSortie" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalmanagerApp.hospitalisation.dateTransfert" for="field_dateTransfert">Date Transfert</label>
+                    <input type="text" class="form-control" name="dateTransfert" id="field_dateTransfert"
+                        [(ngModel)]="hospitalisation.dateTransfert" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalmanagerApp.hospitalisation.dossierMedical" for="field_dossierMedical">Dossier Medical</label>
+                    <input type="text" class="form-control" name="dossierMedical" id="field_dossierMedical"
+                        [(ngModel)]="hospitalisation.dossierMedical" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalmanagerApp.hospitalisation.typeHospitalisation" for="field_typeHospitalisation">Type Hospitalisation</label>
+                    <select class="form-control" id="field_typeHospitalisation" name="typeHospitalisation" [(ngModel)]="hospitalisation.typeHospitalisation" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="typeHospitalisationOption.id === hospitalisation.typeHospitalisation?.id ? hospitalisation.typeHospitalisation : typeHospitalisationOption" *ngFor="let typeHospitalisationOption of typehospitalisations; trackBy: trackTypeHospitalisationById">{{typeHospitalisationOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

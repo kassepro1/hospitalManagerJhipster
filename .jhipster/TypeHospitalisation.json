@@ -1,0 +1,26 @@
+{
+    "name": "TypeHospitalisation",
+    "fields": [
+        {
+            "fieldName": "libelle",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "hospitalisation",
+            "otherEntityName": "hospitalisation",
+            "otherEntityRelationshipName": "typeHospitalisation"
+        }
+    ],
+    "changelogDate": "20181121174822",
+    "entityTableName": "type_hospitalisation",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

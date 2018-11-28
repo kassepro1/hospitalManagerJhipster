@@ -1,0 +1,22 @@
+{
+    "hospitalmanagerApp": {
+        "typeTraitement": {
+            "home": {
+                "title": "TypeTraitements",
+                "createLabel": "Créer un nouveau Type Traitement",
+                "createOrEditLabel": "Créer ou éditer un Type Traitement"
+            },
+            "created": "Un nouveau Type Traitement a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Type Traitement avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Type Traitement avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Type Traitement {{ id }} ?"
+            },
+            "detail": {
+                "title": "Type Traitement"
+            },
+            "libelle": "Libelle",
+            "typeTraitement": "Type Traitement"
+        }
+    }
+}

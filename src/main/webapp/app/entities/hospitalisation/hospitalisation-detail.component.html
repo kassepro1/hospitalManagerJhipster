@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="hospitalisation">
+            <h2><span jhiTranslate="hospitalmanagerApp.hospitalisation.detail.title">Hospitalisation</span> {{hospitalisation.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hospitalmanagerApp.hospitalisation.dateEntree">Date Entree</span></dt>
+                <dd>
+                    <span>{{hospitalisation.dateEntree}}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalmanagerApp.hospitalisation.motifEntree">Motif Entree</span></dt>
+                <dd>
+                    <span>{{hospitalisation.motifEntree}}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalmanagerApp.hospitalisation.dateSortie">Date Sortie</span></dt>
+                <dd>
+                    <span>{{hospitalisation.dateSortie}}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalmanagerApp.hospitalisation.motifSortie">Motif Sortie</span></dt>
+                <dd>
+                    <span>{{hospitalisation.motifSortie}}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalmanagerApp.hospitalisation.dateTransfert">Date Transfert</span></dt>
+                <dd>
+                    <span>{{hospitalisation.dateTransfert}}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalmanagerApp.hospitalisation.dossierMedical">Dossier Medical</span></dt>
+                <dd>
+                    <span>{{hospitalisation.dossierMedical}}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalmanagerApp.hospitalisation.typeHospitalisation">Type Hospitalisation</span></dt>
+                <dd>
+                    <div *ngIf="hospitalisation.typeHospitalisation">
+                        <a [routerLink]="['/type-hospitalisation', hospitalisation.typeHospitalisation?.id, 'view']">{{hospitalisation.typeHospitalisation?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/hospitalisation', hospitalisation.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

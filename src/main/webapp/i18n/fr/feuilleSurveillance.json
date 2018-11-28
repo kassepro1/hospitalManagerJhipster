@@ -1,0 +1,29 @@
+{
+    "hospitalmanagerApp": {
+        "feuilleSurveillance": {
+            "home": {
+                "title": "FeuilleSurveillances",
+                "createLabel": "Créer un nouveau Feuille Surveillance",
+                "createOrEditLabel": "Créer ou éditer un Feuille Surveillance"
+            },
+            "created": "Un nouveau Feuille Surveillance a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Feuille Surveillance avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Feuille Surveillance avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Feuille Surveillance {{ id }} ?"
+            },
+            "detail": {
+                "title": "Feuille Surveillance"
+            },
+            "heure": "Heure",
+            "pouls": "Pouls",
+            "pa": "Pa",
+            "temperature": "Temperature",
+            "freqRespi": "Freq Respi",
+            "diurese": "Diurese",
+            "globeUterin": "Globe Uterin",
+            "observation": "Observation",
+            "hospitalisation": "Hospitalisation"
+        }
+    }
+}

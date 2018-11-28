@@ -1,0 +1,23 @@
+{
+    "hospitalmanagerApp": {
+        "lit": {
+            "home": {
+                "title": "Lits",
+                "createLabel": "Créer un nouveau Lit",
+                "createOrEditLabel": "Créer ou éditer un Lit"
+            },
+            "created": "Un nouveau Lit a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Lit avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Lit avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Lit {{ id }} ?"
+            },
+            "detail": {
+                "title": "Lit"
+            },
+            "numero": "Numero",
+            "etat": "Etat",
+            "hospitalisation": "Hospitalisation"
+        }
+    }
+}

@@ -1,0 +1,63 @@
+
+entity Hospitalisation {
+	dateEntree LocalDate,
+    motifEntree String,
+    dateSortie LocalDate,
+    motifSortie String,
+    dateTransfert String ,
+    dossierMedical String
+}
+entity TypeHospitalisation {
+	libelle String
+}
+entity FeuilleSurveillance {
+	heure LocalDate,
+    pouls String,
+    pa String,
+    temperature String,
+    freqRespi  String,
+    diurese String ,
+    globeUterin String,
+    observation String
+}
+entity Traitement {
+	date LocalDate,
+    observation String,
+    resultat String,
+    detaisTraitement String
+}
+entity TypeTraitement {
+	libelle String
+}
+
+
+entity Lit {
+	numero String,
+	etat Boolean,
+
+}
+
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+    TypeHospitalisation{Hospitalisation} to Hospitalisation,
+    Hospitalisation{FeuilleSurveillance} to FeuilleSurveillance,
+    Hospitalisation{Lit} to Lit,
+    Hospitalisation{Traitement} to Traitement,
+    TypeTraitement{TypeTraitement} to Traitement
+    
+}
+
+
+// Set pagination options
+paginate Hospitalisation, Lit with infinite-scroll
+paginate TypeTraitement with pagination
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl 
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

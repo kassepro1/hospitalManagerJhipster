@@ -1,0 +1,64 @@
+{
+    "name": "Hospitalisation",
+    "fields": [
+        {
+            "fieldName": "dateEntree",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "motifEntree",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateSortie",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "motifSortie",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateTransfert",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dossierMedical",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "feuilleSurveillance",
+            "otherEntityName": "feuilleSurveillance",
+            "otherEntityRelationshipName": "hospitalisation"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "lit",
+            "otherEntityName": "lit",
+            "otherEntityRelationshipName": "hospitalisation"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "traitement",
+            "otherEntityName": "traitement",
+            "otherEntityRelationshipName": "hospitalisation"
+        },
+        {
+            "relationshipName": "typeHospitalisation",
+            "otherEntityName": "typeHospitalisation",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181121174821",
+    "entityTableName": "hospitalisation",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
