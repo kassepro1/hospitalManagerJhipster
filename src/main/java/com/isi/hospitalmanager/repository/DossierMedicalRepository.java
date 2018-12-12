@@ -1,15 +1,15 @@
 package com.isi.hospitalmanager.repository;
 
-import java.util.List;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
 import com.isi.hospitalmanager.domain.DossierMedical;
+import org.springframework.data.jpa.repository.*;
+import org.springframework.stereotype.Repository;
 
-public interface DossierMedicalRepository extends JpaRepository<DossierMedical, String>
-{
-	public DossierMedical create();
-	public List<DossierMedical> finById();
-	
+
+/**
+ * Spring Data  repository for the DossierMedical entity.
+ */
+@SuppressWarnings("unused")
+@Repository
+public interface DossierMedicalRepository extends JpaRepository<DossierMedical, Long>, JpaSpecificationExecutor<DossierMedical> {
 
 }

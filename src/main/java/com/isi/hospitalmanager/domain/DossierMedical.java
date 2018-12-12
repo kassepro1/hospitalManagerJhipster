@@ -1,151 +1,213 @@
 package com.isi.hospitalmanager.domain;
 
-public class DossierMedical
-{
-	private int id;
-	private String nom;
-	private String prenom;
-	private String numFiche;
-	private double taille;
-	private double poids;
-	private String tension;
-	private String temperature;
-	private String photo;
-	private String resultat;
-	
-	
-	public DossierMedical(String nom, String prenom, String numFiche, double taille, double poids, String tension,
-			String temperature, String photo, String resultat) {
-		super();
-		this.nom = nom;
-		this.prenom = prenom;
-		this.numFiche = numFiche;
-		this.taille = taille;
-		this.poids = poids;
-		this.tension = tension;
-		this.temperature = temperature;
-		this.photo = photo;
-		this.resultat = resultat;
-		
-		
-	}
 
+import javax.persistence.*;
+import javax.validation.constraints.*;
 
-	public DossierMedical() {
-	
-	}
+import java.io.Serializable;
+import java.util.Objects;
 
+/**
+ * A DossierMedical.
+ */
+@Entity
+@Table(name = "dossier_medical")
+public class DossierMedical implements Serializable {
 
-	public int getId() {
-		return id;
-	}
+    private static final long serialVersionUID = 1L;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    @Column(name = "nom")
+    private String nom;
 
+    @NotNull
+    @Column(name = "prenom", nullable = false)
+    private String prenom;
 
-	public String getNom() {
-		return nom;
-	}
+    @Column(name = "num_fiche")
+    private String numFiche;
 
+    @Column(name = "taille")
+    private Double taille;
 
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
+    @Column(name = "poids")
+    private Double poids;
 
+    @Column(name = "tension")
+    private String tension;
 
-	public String getPrenom() {
-		return prenom;
-	}
+    @Column(name = "temperature")
+    private String temperature;
 
+    @Column(name = "photo")
+    private String photo;
 
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
-	}
+    @Column(name = "resultat")
+    private String resultat;
 
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
+    public Long getId() {
+        return id;
+    }
 
-	public String getNumFiche() {
-		return numFiche;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
+    public String getNom() {
+        return nom;
+    }
 
-	public void setNumFiche(String numFiche) {
-		this.numFiche = numFiche;
-	}
+    public DossierMedical nom(String nom) {
+        this.nom = nom;
+        return this;
+    }
 
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
 
-	public double getTaille() {
-		return taille;
-	}
+    public String getPrenom() {
+        return prenom;
+    }
 
+    public DossierMedical prenom(String prenom) {
+        this.prenom = prenom;
+        return this;
+    }
 
-	public void setTaille(double taille) {
-		this.taille = taille;
-	}
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
 
+    public String getNumFiche() {
+        return numFiche;
+    }
 
-	public double getPoids() {
-		return poids;
-	}
+    public DossierMedical numFiche(String numFiche) {
+        this.numFiche = numFiche;
+        return this;
+    }
 
+    public void setNumFiche(String numFiche) {
+        this.numFiche = numFiche;
+    }
 
-	public void setPoids(double poids) {
-		this.poids = poids;
-	}
+    public Double getTaille() {
+        return taille;
+    }
 
+    public DossierMedical taille(Double taille) {
+        this.taille = taille;
+        return this;
+    }
 
-	public String getTension() {
-		return tension;
-	}
+    public void setTaille(Double taille) {
+        this.taille = taille;
+    }
 
+    public Double getPoids() {
+        return poids;
+    }
 
-	public void setTension(String tension) {
-		this.tension = tension;
-	}
+    public DossierMedical poids(Double poids) {
+        this.poids = poids;
+        return this;
+    }
 
+    public void setPoids(Double poids) {
+        this.poids = poids;
+    }
 
-	public String getTemperature() {
-		return temperature;
-	}
+    public String getTension() {
+        return tension;
+    }
 
+    public DossierMedical tension(String tension) {
+        this.tension = tension;
+        return this;
+    }
 
-	public void setTemperature(String temperature) {
-		this.temperature = temperature;
-	}
+    public void setTension(String tension) {
+        this.tension = tension;
+    }
 
+    public String getTemperature() {
+        return temperature;
+    }
 
-	public String getPhoto() {
-		return photo;
-	}
+    public DossierMedical temperature(String temperature) {
+        this.temperature = temperature;
+        return this;
+    }
 
+    public void setTemperature(String temperature) {
+        this.temperature = temperature;
+    }
 
-	public void setPhoto(String photo) {
-		this.photo = photo;
-	}
+    public String getPhoto() {
+        return photo;
+    }
 
+    public DossierMedical photo(String photo) {
+        this.photo = photo;
+        return this;
+    }
 
-	public String getResultat() {
-		return resultat;
-	}
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
 
+    public String getResultat() {
+        return resultat;
+    }
 
-	public void setResultat(String resultat) {
-		this.resultat = resultat;
-	}
+    public DossierMedical resultat(String resultat) {
+        this.resultat = resultat;
+        return this;
+    }
 
+    public void setResultat(String resultat) {
+        this.resultat = resultat;
+    }
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
-	@Override
-	public String toString() {
-		return "DossierMedical [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", numFiche=" + numFiche
-				+ ", taille=" + taille + ", poids=" + poids + ", tension=" + tension + ", temperature=" + temperature
-				+ ", photo=" + photo + ", resultat=" + resultat + "]";
-	}
-	
-	
-	
-	
-	
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        DossierMedical dossierMedical = (DossierMedical) o;
+        if (dossierMedical.getId() == null || getId() == null) {
+            return false;
+        }
+        return Objects.equals(getId(), dossierMedical.getId());
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getId());
+    }
+
+    @Override
+    public String toString() {
+        return "DossierMedical{" +
+            "id=" + getId() +
+            ", nom='" + getNom() + "'" +
+            ", prenom='" + getPrenom() + "'" +
+            ", numFiche='" + getNumFiche() + "'" +
+            ", taille=" + getTaille() +
+            ", poids=" + getPoids() +
+            ", tension='" + getTension() + "'" +
+            ", temperature='" + getTemperature() + "'" +
+            ", photo='" + getPhoto() + "'" +
+            ", resultat='" + getResultat() + "'" +
+            "}";
+    }
 }

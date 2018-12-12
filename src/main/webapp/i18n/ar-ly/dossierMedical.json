@@ -1,0 +1,29 @@
+{
+    "hospitalmanagerApp": {
+        "dossierMedical": {
+            "home": {
+                "title": "Dossier Medicals",
+                "createLabel": "Create a new Dossier Medical",
+                "createOrEditLabel": "Create or edit a Dossier Medical"
+            },
+            "created": "A new Dossier Medical is created with identifier {{ param }}",
+            "updated": "A Dossier Medical is updated with identifier {{ param }}",
+            "deleted": "A Dossier Medical is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Dossier Medical {{ id }}?"
+            },
+            "detail": {
+                "title": "Dossier Medical"
+            },
+            "nom": "Nom",
+            "prenom": "Prenom",
+            "numFiche": "Num Fiche",
+            "taille": "Taille",
+            "poids": "Poids",
+            "tension": "Tension",
+            "temperature": "Temperature",
+            "photo": "Photo",
+            "resultat": "Resultat"
+        }
+    }
+}

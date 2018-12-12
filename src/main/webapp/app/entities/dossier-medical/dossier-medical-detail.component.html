@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="dossierMedical">
+            <h2><span jhiTranslate="hospitalmanagerApp.dossierMedical.detail.title">Dossier Medical</span> {{dossierMedical.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hospitalmanagerApp.dossierMedical.nom">Nom</span></dt>
+                <dd>
+                    <span>{{dossierMedical.nom}}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalmanagerApp.dossierMedical.prenom">Prenom</span></dt>
+                <dd>
+                    <span>{{dossierMedical.prenom}}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalmanagerApp.dossierMedical.numFiche">Num Fiche</span></dt>
+                <dd>
+                    <span>{{dossierMedical.numFiche}}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalmanagerApp.dossierMedical.taille">Taille</span></dt>
+                <dd>
+                    <span>{{dossierMedical.taille}}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalmanagerApp.dossierMedical.poids">Poids</span></dt>
+                <dd>
+                    <span>{{dossierMedical.poids}}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalmanagerApp.dossierMedical.tension">Tension</span></dt>
+                <dd>
+                    <span>{{dossierMedical.tension}}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalmanagerApp.dossierMedical.temperature">Temperature</span></dt>
+                <dd>
+                    <span>{{dossierMedical.temperature}}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalmanagerApp.dossierMedical.photo">Photo</span></dt>
+                <dd>
+                    <span>{{dossierMedical.photo}}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalmanagerApp.dossierMedical.resultat">Resultat</span></dt>
+                <dd>
+                    <span>{{dossierMedical.resultat}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/dossier-medical', dossierMedical.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
