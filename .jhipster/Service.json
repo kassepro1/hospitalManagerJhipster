@@ -1,0 +1,36 @@
+{
+    "name": "Service",
+    "fields": [
+        {
+            "fieldName": "numService",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "libelle",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "serviceDoc",
+            "otherEntityName": "docteur",
+            "otherEntityRelationshipName": "service"
+        }
+    ],
+    "changelogDate": "20181128185740",
+    "entityTableName": "service",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

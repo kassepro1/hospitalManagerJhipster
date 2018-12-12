@@ -6,6 +6,11 @@ import { HospitalmanagerFeuilleSurveillanceModule } from './feuille-surveillance
 import { HospitalmanagerTraitementModule } from './traitement/traitement.module';
 import { HospitalmanagerTypeTraitementModule } from './type-traitement/type-traitement.module';
 import { HospitalmanagerLitModule } from './lit/lit.module';
+import { HospitalmanagerPatientModule } from './patient/patient.module';
+import { HospitalmanagerDocteurModule } from './docteur/docteur.module';
+import { HospitalmanagerServiceModule } from './service/service.module';
+import { HospitalmanagerSpecialiteModule } from './specialite/specialite.module';
+import { HospitalmanagerRendezVousModule } from './rendez-vous/rendez-vous.module';
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
 
 @NgModule({
@@ -17,6 +22,11 @@ import { HospitalmanagerLitModule } from './lit/lit.module';
         HospitalmanagerTraitementModule,
         HospitalmanagerTypeTraitementModule,
         HospitalmanagerLitModule,
+        HospitalmanagerPatientModule,
+        HospitalmanagerDocteurModule,
+        HospitalmanagerServiceModule,
+        HospitalmanagerSpecialiteModule,
+        HospitalmanagerRendezVousModule,
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
     ],
     declarations: [],
