@@ -11,6 +11,12 @@ import { HospitalmanagerDocteurModule } from './docteur/docteur.module';
 import { HospitalmanagerServiceModule } from './service/service.module';
 import { HospitalmanagerSpecialiteModule } from './specialite/specialite.module';
 import { HospitalmanagerRendezVousModule } from './rendez-vous/rendez-vous.module';
+import { HospitalmanagerDepartementModule } from './departement/departement.module';
+import { HospitalmanagerServicehoModule } from './serviceho/serviceho.module';
+import { HospitalmanagerBatimentModule } from './batiment/batiment.module';
+import { HospitalmanagerNiveauModule } from './niveau/niveau.module';
+import { HospitalmanagerTypeChambreModule } from './type-chambre/type-chambre.module';
+import { HospitalmanagerChambreModule } from './chambre/chambre.module';
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
 
 @NgModule({
@@ -27,6 +33,12 @@ import { HospitalmanagerRendezVousModule } from './rendez-vous/rendez-vous.modul
         HospitalmanagerServiceModule,
         HospitalmanagerSpecialiteModule,
         HospitalmanagerRendezVousModule,
+        HospitalmanagerDepartementModule,
+        HospitalmanagerServicehoModule,
+        HospitalmanagerBatimentModule,
+        HospitalmanagerNiveauModule,
+        HospitalmanagerTypeChambreModule,
+        HospitalmanagerChambreModule,
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
     ],
     declarations: [],

@@ -1,0 +1,25 @@
+{
+    "hospitalmanagerApp": {
+        "chambre": {
+            "home": {
+                "title": "Chambres",
+                "createLabel": "Create a new Chambre",
+                "createOrEditLabel": "Create or edit a Chambre"
+            },
+            "created": "A new Chambre is created with identifier {{ param }}",
+            "updated": "A Chambre is updated with identifier {{ param }}",
+            "deleted": "A Chambre is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Chambre {{ id }}?"
+            },
+            "detail": {
+                "title": "Chambre"
+            },
+            "libelle": "Libelle",
+            "statut": "Statut",
+            "surface": "Surface",
+            "niveau": "Niveau",
+            "typeChambre": "Type Chambre"
+        }
+    }
+}

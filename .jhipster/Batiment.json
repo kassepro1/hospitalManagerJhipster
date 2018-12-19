@@ -1,0 +1,35 @@
+{
+    "name": "Batiment",
+    "fields": [
+        {
+            "fieldName": "libelle",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "serviceho",
+            "otherEntityName": "serviceho",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "niveau",
+            "otherEntityName": "niveau",
+            "otherEntityRelationshipName": "batiment"
+        }
+    ],
+    "changelogDate": "20181219101231",
+    "entityTableName": "batiment",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

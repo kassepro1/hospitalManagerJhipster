@@ -18,6 +18,12 @@
                 "service": "Service",
                 "specialite": "Specialite",
                 "rendezVous": "Rendez Vous",
+                "departement": "Departement",
+                "serviceho": "Serviceho",
+                "batiment": "Batiment",
+                "niveau": "Niveau",
+                "typeChambre": "Type Chambre",
+                "chambre": "Chambre",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

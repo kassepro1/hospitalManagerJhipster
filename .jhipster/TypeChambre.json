@@ -1,0 +1,29 @@
+{
+    "name": "TypeChambre",
+    "fields": [
+        {
+            "fieldName": "dateInscription",
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "chambre",
+            "otherEntityName": "chambre",
+            "otherEntityRelationshipName": "typeChambre"
+        }
+    ],
+    "changelogDate": "20181219101233",
+    "entityTableName": "type_chambre",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

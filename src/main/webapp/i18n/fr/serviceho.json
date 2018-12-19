@@ -1,0 +1,23 @@
+{
+    "hospitalmanagerApp": {
+        "serviceho": {
+            "home": {
+                "title": "Servicehos",
+                "createLabel": "Créer un nouveau Serviceho",
+                "createOrEditLabel": "Créer ou éditer un Serviceho"
+            },
+            "created": "Un nouveau Serviceho a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Serviceho avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Serviceho avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Serviceho {{ id }} ?"
+            },
+            "detail": {
+                "title": "Serviceho"
+            },
+            "nom": "Nom",
+            "departement": "Departement",
+            "batiment": "Batiment"
+        }
+    }
+}
