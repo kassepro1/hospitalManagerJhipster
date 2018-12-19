@@ -1,0 +1,22 @@
+{
+    "hospitalmanagerApp": {
+        "typeChambre": {
+            "home": {
+                "title": "TypeChambres",
+                "createLabel": "Créer un nouveau Type Chambre",
+                "createOrEditLabel": "Créer ou éditer un Type Chambre"
+            },
+            "created": "Un nouveau Type Chambre a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Type Chambre avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Type Chambre avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Type Chambre {{ id }} ?"
+            },
+            "detail": {
+                "title": "Type Chambre"
+            },
+            "dateInscription": "Date Inscription",
+            "chambre": "Chambre"
+        }
+    }
+}

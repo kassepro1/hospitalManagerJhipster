@@ -1,0 +1,36 @@
+{
+    "name": "Specialite",
+    "fields": [
+        {
+            "fieldName": "numService",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "libelle",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "specialiteDoc",
+            "otherEntityName": "docteur",
+            "otherEntityRelationshipName": "specialite"
+        }
+    ],
+    "changelogDate": "20181128185741",
+    "entityTableName": "specialite",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="traitement">
+            <h2><span jhiTranslate="hospitalmanagerApp.traitement.detail.title">Traitement</span> {{traitement.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hospitalmanagerApp.traitement.date">Date</span></dt>
+                <dd>
+                    <span>{{traitement.date}}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalmanagerApp.traitement.observation">Observation</span></dt>
+                <dd>
+                    <span>{{traitement.observation}}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalmanagerApp.traitement.resultat">Resultat</span></dt>
+                <dd>
+                    <span>{{traitement.resultat}}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalmanagerApp.traitement.detaisTraitement">Detais Traitement</span></dt>
+                <dd>
+                    <span>{{traitement.detaisTraitement}}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalmanagerApp.traitement.hospitalisation">Hospitalisation</span></dt>
+                <dd>
+                    <div *ngIf="traitement.hospitalisation">
+                        <a [routerLink]="['/hospitalisation', traitement.hospitalisation?.id, 'view']">{{traitement.hospitalisation?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hospitalmanagerApp.traitement.typeTraitement">Type Traitement</span></dt>
+                <dd>
+                    <div *ngIf="traitement.typeTraitement">
+                        <a [routerLink]="['/type-traitement', traitement.typeTraitement?.id, 'view']">{{traitement.typeTraitement?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/traitement', traitement.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

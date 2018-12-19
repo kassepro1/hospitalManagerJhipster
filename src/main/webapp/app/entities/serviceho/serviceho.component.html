@@ -1,0 +1,60 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hospitalmanagerApp.serviceho.home.title">Servicehos</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-serviceho" [routerLink]="['/serviceho/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="hospitalmanagerApp.serviceho.home.createLabel">
+            Create new Serviceho
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="servicehos">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="hospitalmanagerApp.serviceho.nom">Nom</span></th>
+            <th><span jhiTranslate="hospitalmanagerApp.serviceho.departement">Departement</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let serviceho of servicehos ;trackBy: trackId">
+                <td><a [routerLink]="['/serviceho', serviceho.id, 'view' ]">{{serviceho.id}}</a></td>
+                <td>{{serviceho.nom}}</td>
+                <td>
+                    <div *ngIf="serviceho.departement">
+                        <a [routerLink]="['../departement', serviceho.departement?.id, 'view' ]" >{{serviceho.departement?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/serviceho', serviceho.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/serviceho', serviceho.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'serviceho/'+ serviceho.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

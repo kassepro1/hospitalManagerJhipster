@@ -1,0 +1,32 @@
+{
+    "name": "Niveau",
+    "fields": [
+        {
+            "fieldName": "niveau",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "batiment",
+            "otherEntityName": "batiment",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "chambre",
+            "otherEntityName": "chambre",
+            "otherEntityRelationshipName": "niveau"
+        }
+    ],
+    "changelogDate": "20181219101232",
+    "entityTableName": "niveau",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

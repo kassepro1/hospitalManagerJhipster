@@ -1,0 +1,26 @@
+{
+    "name": "TypeTraitement",
+    "fields": [
+        {
+            "fieldName": "libelle",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "typeTraitement",
+            "otherEntityName": "traitement",
+            "otherEntityRelationshipName": "typeTraitement"
+        }
+    ],
+    "changelogDate": "20181121174825",
+    "entityTableName": "type_traitement",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

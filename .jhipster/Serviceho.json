@@ -1,0 +1,35 @@
+{
+    "name": "Serviceho",
+    "fields": [
+        {
+            "fieldName": "nom",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "departement",
+            "otherEntityName": "departement",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "batiment",
+            "otherEntityName": "batiment",
+            "otherEntityRelationshipName": "serviceho"
+        }
+    ],
+    "changelogDate": "20181219101230",
+    "entityTableName": "serviceho",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

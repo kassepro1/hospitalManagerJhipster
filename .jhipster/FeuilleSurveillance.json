@@ -1,0 +1,54 @@
+{
+    "name": "FeuilleSurveillance",
+    "fields": [
+        {
+            "fieldName": "heure",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "pouls",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pa",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "temperature",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "freqRespi",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "diurese",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "globeUterin",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "observation",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "hospitalisation",
+            "otherEntityName": "hospitalisation",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181121174823",
+    "entityTableName": "feuille_surveillance",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

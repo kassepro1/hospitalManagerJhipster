@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-traitement-heading" jhiTranslate="hospitalmanagerApp.traitement.home.createOrEditLabel">Create or edit a Traitement</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!traitement.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="traitement.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalmanagerApp.traitement.date" for="field_date">Date</label>
+                    <div class="input-group">
+                        <input id="field_date" type="text" class="form-control" name="date" ngbDatepicker  #dateDp="ngbDatepicker" [(ngModel)]="traitement.date"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalmanagerApp.traitement.observation" for="field_observation">Observation</label>
+                    <input type="text" class="form-control" name="observation" id="field_observation"
+                        [(ngModel)]="traitement.observation" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalmanagerApp.traitement.resultat" for="field_resultat">Resultat</label>
+                    <input type="text" class="form-control" name="resultat" id="field_resultat"
+                        [(ngModel)]="traitement.resultat" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalmanagerApp.traitement.detaisTraitement" for="field_detaisTraitement">Detais Traitement</label>
+                    <input type="text" class="form-control" name="detaisTraitement" id="field_detaisTraitement"
+                        [(ngModel)]="traitement.detaisTraitement" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalmanagerApp.traitement.hospitalisation" for="field_hospitalisation">Hospitalisation</label>
+                    <select class="form-control" id="field_hospitalisation" name="hospitalisation" [(ngModel)]="traitement.hospitalisation" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="hospitalisationOption.id === traitement.hospitalisation?.id ? traitement.hospitalisation : hospitalisationOption" *ngFor="let hospitalisationOption of hospitalisations; trackBy: trackHospitalisationById">{{hospitalisationOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalmanagerApp.traitement.typeTraitement" for="field_typeTraitement">Type Traitement</label>
+                    <select class="form-control" id="field_typeTraitement" name="typeTraitement" [(ngModel)]="traitement.typeTraitement" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="typeTraitementOption.id === traitement.typeTraitement?.id ? traitement.typeTraitement : typeTraitementOption" *ngFor="let typeTraitementOption of typetraitements; trackBy: trackTypeTraitementById">{{typeTraitementOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+{
+    "hospitalmanagerApp": {
+        "hospitalisation": {
+            "home": {
+                "title": "Hospitalisations",
+                "createLabel": "Créer un nouveau Hospitalisation",
+                "createOrEditLabel": "Créer ou éditer un Hospitalisation"
+            },
+            "created": "Un nouveau Hospitalisation a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Hospitalisation avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Hospitalisation avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Hospitalisation {{ id }} ?"
+            },
+            "detail": {
+                "title": "Hospitalisation"
+            },
+            "dateEntree": "Date Entree",
+            "motifEntree": "Motif Entree",
+            "dateSortie": "Date Sortie",
+            "motifSortie": "Motif Sortie",
+            "dateTransfert": "Date Transfert",
+            "dossierMedical": "Dossier Medical",
+            "feuilleSurveillance": "Feuille Surveillance",
+            "lit": "Lit",
+            "traitement": "Traitement",
+            "typeHospitalisation": "Type Hospitalisation"
+        }
+    }
+}

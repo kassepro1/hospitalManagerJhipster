@@ -1,0 +1,61 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="feuilleSurveillance">
+            <h2><span jhiTranslate="hospitalmanagerApp.feuilleSurveillance.detail.title">Feuille Surveillance</span> {{feuilleSurveillance.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hospitalmanagerApp.feuilleSurveillance.heure">Heure</span></dt>
+                <dd>
+                    <span>{{feuilleSurveillance.heure}}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalmanagerApp.feuilleSurveillance.pouls">Pouls</span></dt>
+                <dd>
+                    <span>{{feuilleSurveillance.pouls}}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalmanagerApp.feuilleSurveillance.pa">Pa</span></dt>
+                <dd>
+                    <span>{{feuilleSurveillance.pa}}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalmanagerApp.feuilleSurveillance.temperature">Temperature</span></dt>
+                <dd>
+                    <span>{{feuilleSurveillance.temperature}}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalmanagerApp.feuilleSurveillance.freqRespi">Freq Respi</span></dt>
+                <dd>
+                    <span>{{feuilleSurveillance.freqRespi}}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalmanagerApp.feuilleSurveillance.diurese">Diurese</span></dt>
+                <dd>
+                    <span>{{feuilleSurveillance.diurese}}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalmanagerApp.feuilleSurveillance.globeUterin">Globe Uterin</span></dt>
+                <dd>
+                    <span>{{feuilleSurveillance.globeUterin}}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalmanagerApp.feuilleSurveillance.observation">Observation</span></dt>
+                <dd>
+                    <span>{{feuilleSurveillance.observation}}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalmanagerApp.feuilleSurveillance.hospitalisation">Hospitalisation</span></dt>
+                <dd>
+                    <div *ngIf="feuilleSurveillance.hospitalisation">
+                        <a [routerLink]="['/hospitalisation', feuilleSurveillance.hospitalisation?.id, 'view']">{{feuilleSurveillance.hospitalisation?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/feuille-surveillance', feuilleSurveillance.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

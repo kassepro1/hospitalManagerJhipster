@@ -1,0 +1,74 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hospitalmanagerApp.feuilleSurveillance.home.title">Feuille Surveillances</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-feuille-surveillance" [routerLink]="['/feuille-surveillance/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="hospitalmanagerApp.feuilleSurveillance.home.createLabel">
+            Create new Feuille Surveillance
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="feuilleSurveillances">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="hospitalmanagerApp.feuilleSurveillance.heure">Heure</span></th>
+            <th><span jhiTranslate="hospitalmanagerApp.feuilleSurveillance.pouls">Pouls</span></th>
+            <th><span jhiTranslate="hospitalmanagerApp.feuilleSurveillance.pa">Pa</span></th>
+            <th><span jhiTranslate="hospitalmanagerApp.feuilleSurveillance.temperature">Temperature</span></th>
+            <th><span jhiTranslate="hospitalmanagerApp.feuilleSurveillance.freqRespi">Freq Respi</span></th>
+            <th><span jhiTranslate="hospitalmanagerApp.feuilleSurveillance.diurese">Diurese</span></th>
+            <th><span jhiTranslate="hospitalmanagerApp.feuilleSurveillance.globeUterin">Globe Uterin</span></th>
+            <th><span jhiTranslate="hospitalmanagerApp.feuilleSurveillance.observation">Observation</span></th>
+            <th><span jhiTranslate="hospitalmanagerApp.feuilleSurveillance.hospitalisation">Hospitalisation</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let feuilleSurveillance of feuilleSurveillances ;trackBy: trackId">
+                <td><a [routerLink]="['/feuille-surveillance', feuilleSurveillance.id, 'view' ]">{{feuilleSurveillance.id}}</a></td>
+                <td>{{feuilleSurveillance.heure | date:'mediumDate'}}</td>
+                <td>{{feuilleSurveillance.pouls}}</td>
+                <td>{{feuilleSurveillance.pa}}</td>
+                <td>{{feuilleSurveillance.temperature}}</td>
+                <td>{{feuilleSurveillance.freqRespi}}</td>
+                <td>{{feuilleSurveillance.diurese}}</td>
+                <td>{{feuilleSurveillance.globeUterin}}</td>
+                <td>{{feuilleSurveillance.observation}}</td>
+                <td>
+                    <div *ngIf="feuilleSurveillance.hospitalisation">
+                        <a [routerLink]="['../hospitalisation', feuilleSurveillance.hospitalisation?.id, 'view' ]" >{{feuilleSurveillance.hospitalisation?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/feuille-surveillance', feuilleSurveillance.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/feuille-surveillance', feuilleSurveillance.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'feuille-surveillance/'+ feuilleSurveillance.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

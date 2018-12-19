@@ -1,0 +1,22 @@
+{
+    "hospitalmanagerApp": {
+        "typeHospitalisation": {
+            "home": {
+                "title": "TypeHospitalisations",
+                "createLabel": "Créer un nouveau Type Hospitalisation",
+                "createOrEditLabel": "Créer ou éditer un Type Hospitalisation"
+            },
+            "created": "Un nouveau Type Hospitalisation a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Type Hospitalisation avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Type Hospitalisation avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Type Hospitalisation {{ id }} ?"
+            },
+            "detail": {
+                "title": "Type Hospitalisation"
+            },
+            "libelle": "Libelle",
+            "hospitalisation": "Hospitalisation"
+        }
+    }
+}
