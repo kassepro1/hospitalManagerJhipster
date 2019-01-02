@@ -745,7 +745,7 @@
                         <server>TomcatServer</server>
                         <username>bouya</username>
                         <password>passer2018</password>
-                        <path>/hospitalmanager</path>
+                        <path>/</path>
                     </configuration>
                 </plugin>
             </plugins>
