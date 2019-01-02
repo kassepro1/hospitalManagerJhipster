@@ -2,7 +2,9 @@ package com.isi.hospitalmanager.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.isi.hospitalmanager.domain.Departement;
+import com.isi.hospitalmanager.domain.Serviceho;
 import com.isi.hospitalmanager.repository.DepartementRepository;
+import com.isi.hospitalmanager.repository.ServicehoRepository;
 import com.isi.hospitalmanager.web.rest.errors.BadRequestAlertException;
 import com.isi.hospitalmanager.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
@@ -15,6 +17,7 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,8 +34,11 @@ public class DepartementResource {
 
     private final DepartementRepository departementRepository;
 
-    public DepartementResource(DepartementRepository departementRepository) {
+    private final ServicehoRepository servicehoRepository;
+
+    public DepartementResource(DepartementRepository departementRepository, ServicehoRepository servicehoRepository) {
         this.departementRepository = departementRepository;
+        this.servicehoRepository = servicehoRepository;
     }
 
     /**
@@ -117,4 +123,26 @@ public class DepartementResource {
         departementRepository.deleteById(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
     }
+
+    @GetMapping("/departements/all-service/{name}")
+    @Timed
+    public List<Serviceho> getAllServiceForOneDepartement(@PathVariable String name){
+
+        Optional<Departement> departement = departementRepository.findOneByNom(name);
+        List<Serviceho> servicehoList = new ArrayList<>();
+        if(departement.isPresent()){
+            for (Serviceho s:
+                servicehoRepository.findAll()) {
+                if(s.getDepartement().getId()== departement.get().getId()){
+                    servicehoList.add(s);
+                }
+
+            }
+
+        }
+
+        return servicehoList;
+
+    }
+
 }

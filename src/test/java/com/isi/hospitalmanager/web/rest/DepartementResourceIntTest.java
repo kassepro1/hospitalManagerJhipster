@@ -4,6 +4,7 @@ import com.isi.hospitalmanager.HospitalmanagerApp;
 
 import com.isi.hospitalmanager.domain.Departement;
 import com.isi.hospitalmanager.repository.DepartementRepository;
+import com.isi.hospitalmanager.repository.ServicehoRepository;
 import com.isi.hospitalmanager.web.rest.errors.ExceptionTranslator;
 
 import org.junit.Before;
@@ -60,11 +61,16 @@ public class DepartementResourceIntTest {
     private MockMvc restDepartementMockMvc;
 
     private Departement departement;
+    private final ServicehoRepository servicehoRepository;
+
+    public DepartementResourceIntTest(ServicehoRepository servicehoRepository) {
+        this.servicehoRepository = servicehoRepository;
+    }
 
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final DepartementResource departementResource = new DepartementResource(departementRepository);
+        final DepartementResource departementResource = new DepartementResource(departementRepository, servicehoRepository);
         this.restDepartementMockMvc = MockMvcBuilders.standaloneSetup(departementResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)

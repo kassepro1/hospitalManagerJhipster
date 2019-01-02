@@ -15,6 +15,7 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -117,4 +118,33 @@ public class ChambreResource {
         chambreRepository.deleteById(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
     }
+
+    @GetMapping("/chambres/disponible")
+    @Timed
+    public List<Chambre> getChambreDisponible(){
+
+        List<Chambre> chambreList = new ArrayList<>();
+        for (Chambre c :
+            chambreRepository.findAll()) {
+            if(c.getStatut().equals("disponible")){
+                chambreList.add(c);
+            }
+        }
+        return chambreList;
+    }
+
+    @GetMapping("/chambres/non-disponible")
+    @Timed
+    public List<Chambre> getChambreOccupee(){
+
+        List<Chambre> chambreList = new ArrayList<>();
+        for (Chambre c :
+            chambreRepository.findAll()) {
+            if(c.getStatut().equals("occupee")){
+                chambreList.add(c);
+            }
+        }
+        return chambreList;
+    }
+
 }

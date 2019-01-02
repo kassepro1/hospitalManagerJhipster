@@ -735,6 +735,19 @@
                     <artifactId>spring-boot-maven-plugin</artifactId>
                     <version>${spring-boot.version}</version>
                 </plugin>
+                <!-- tomecat plugin -->
+                <plugin>
+                    <groupId>org.apache.tomcat.maven</groupId>
+                    <artifactId>tomcat7-maven-plugin</artifactId>
+                    <version>2.2</version>
+                    <configuration>
+                        <url>http://localhost:8097/manager/text</url>
+                        <server>TomcatServer</server>
+                        <username>bouya</username>
+                        <password>passer2018</password>
+                        <path>/hospitalmanager</path>
+                    </configuration>
+                </plugin>
             </plugins>
         </pluginManagement>
     </build>
