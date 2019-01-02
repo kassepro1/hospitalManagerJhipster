@@ -1,0 +1,70 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hospitalmanagerApp.dossierMedical.home.title">Dossier Medicals</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-dossier-medical" [routerLink]="['/dossier-medical/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="hospitalmanagerApp.dossierMedical.home.createLabel">
+            Create new Dossier Medical
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="dossierMedicals">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="hospitalmanagerApp.dossierMedical.nom">Nom</span></th>
+            <th><span jhiTranslate="hospitalmanagerApp.dossierMedical.prenom">Prenom</span></th>
+            <th><span jhiTranslate="hospitalmanagerApp.dossierMedical.numFiche">Num Fiche</span></th>
+            <th><span jhiTranslate="hospitalmanagerApp.dossierMedical.taille">Taille</span></th>
+            <th><span jhiTranslate="hospitalmanagerApp.dossierMedical.poids">Poids</span></th>
+            <th><span jhiTranslate="hospitalmanagerApp.dossierMedical.tension">Tension</span></th>
+            <th><span jhiTranslate="hospitalmanagerApp.dossierMedical.temperature">Temperature</span></th>
+            <th><span jhiTranslate="hospitalmanagerApp.dossierMedical.photo">Photo</span></th>
+            <th><span jhiTranslate="hospitalmanagerApp.dossierMedical.resultat">Resultat</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let dossierMedical of dossierMedicals ;trackBy: trackId">
+                <td><a [routerLink]="['/dossier-medical', dossierMedical.id, 'view' ]">{{dossierMedical.id}}</a></td>
+                <td>{{dossierMedical.nom}}</td>
+                <td>{{dossierMedical.prenom}}</td>
+                <td>{{dossierMedical.numFiche}}</td>
+                <td>{{dossierMedical.taille}}</td>
+                <td>{{dossierMedical.poids}}</td>
+                <td>{{dossierMedical.tension}}</td>
+                <td>{{dossierMedical.temperature}}</td>
+                <td>{{dossierMedical.photo}}</td>
+                <td>{{dossierMedical.resultat}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/dossier-medical', dossierMedical.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/dossier-medical', dossierMedical.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'dossier-medical/'+ dossierMedical.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
