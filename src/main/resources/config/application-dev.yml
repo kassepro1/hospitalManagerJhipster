@@ -68,11 +68,8 @@ spring:
         cache: false
 
 server:
-<<<<<<< HEAD
-    port: 8282
-=======
     port: 8181
->>>>>>> master
+
 
 # ===================================================================
 # JHipster specific properties
