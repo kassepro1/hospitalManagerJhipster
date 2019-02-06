@@ -13,18 +13,24 @@
     <div class="table-responsive" *ngIf="services">
         <table class="table table-striped">
             <thead>
-            <tr>
-            <th><span jhiTranslate="global.field.id">ID</span></th>
-            <th><span jhiTranslate="hospitalmanagerApp.service.numService">Num Service</span></th>
-            <th><span jhiTranslate="hospitalmanagerApp.service.libelle">Libelle</span></th>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numService"><span jhiTranslate="hospitalmanagerApp.service.numService">Num Service</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="libelle"><span jhiTranslate="hospitalmanagerApp.service.libelle">Libelle</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="equipementId"><span jhiTranslate="hospitalmanagerApp.service.equipement">Equipement</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
             </thead>
-            <tbody>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
             <tr *ngFor="let service of services ;trackBy: trackId">
                 <td><a [routerLink]="['/service', service.id, 'view' ]">{{service.id}}</a></td>
                 <td>{{service.numService}}</td>
                 <td>{{service.libelle}}</td>
+                <td>
+                    <div *ngIf="service.equipementId">
+                        <a [routerLink]="['../equipement', service.equipementId , 'view' ]" >{{service.equipementId}}</a>
+                    </div>
+                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

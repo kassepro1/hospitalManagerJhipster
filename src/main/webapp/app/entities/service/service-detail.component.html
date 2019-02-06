@@ -13,6 +13,12 @@
                 <dd>
                     <span>{{service.libelle}}</span>
                 </dd>
+                <dt><span jhiTranslate="hospitalmanagerApp.service.equipement">Equipement</span></dt>
+                <dd>
+                    <div *ngIf="service.equipementId">
+                        <a [routerLink]="['/equipement', service.equipementId, 'view']">{{service.equipementId}}</a>
+                    </div>
+                </dd>
             </dl>
 
             <button type="submit"

@@ -17,6 +17,9 @@ import { HospitalmanagerBatimentModule } from './batiment/batiment.module';
 import { HospitalmanagerNiveauModule } from './niveau/niveau.module';
 import { HospitalmanagerTypeChambreModule } from './type-chambre/type-chambre.module';
 import { HospitalmanagerChambreModule } from './chambre/chambre.module';
+import { HospitalmanagerCategorieModule } from './categorie/categorie.module';
+import { HospitalmanagerTypeModule } from './type/type.module';
+import { HospitalmanagerEquipementModule } from './equipement/equipement.module';
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
 
 @NgModule({
@@ -39,6 +42,9 @@ import { HospitalmanagerChambreModule } from './chambre/chambre.module';
         HospitalmanagerNiveauModule,
         HospitalmanagerTypeChambreModule,
         HospitalmanagerChambreModule,
+        HospitalmanagerCategorieModule,
+        HospitalmanagerTypeModule,
+        HospitalmanagerEquipementModule,
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
     ],
     declarations: [],

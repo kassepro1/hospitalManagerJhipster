@@ -2,9 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { JhiAlertService } from 'ng-jhipster';
 
 import { IService } from 'app/shared/model/service.model';
 import { ServiceService } from './service.service';
+import { IEquipement } from 'app/shared/model/equipement.model';
+import { EquipementService } from 'app/entities/equipement';
 
 @Component({
     selector: 'jhi-service-update',
@@ -14,13 +17,26 @@ export class ServiceUpdateComponent implements OnInit {
     service: IService;
     isSaving: boolean;
 
-    constructor(private serviceService: ServiceService, private activatedRoute: ActivatedRoute) {}
+    equipements: IEquipement[];
+
+    constructor(
+        private jhiAlertService: JhiAlertService,
+        private serviceService: ServiceService,
+        private equipementService: EquipementService,
+        private activatedRoute: ActivatedRoute
+    ) {}
 
     ngOnInit() {
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ service }) => {
             this.service = service;
         });
+        this.equipementService.query().subscribe(
+            (res: HttpResponse<IEquipement[]>) => {
+                this.equipements = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
     }
 
     previousState() {
@@ -47,5 +63,13 @@ export class ServiceUpdateComponent implements OnInit {
 
     private onSaveError() {
         this.isSaving = false;
+    }
+
+    private onError(errorMessage: string) {
+        this.jhiAlertService.error(errorMessage, null, null);
+    }
+
+    trackEquipementById(index: number, item: IEquipement) {
+        return item.id;
     }
 }

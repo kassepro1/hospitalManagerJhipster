@@ -24,6 +24,9 @@
                 "niveau": "Niveau",
                 "typeChambre": "Type Chambre",
                 "chambre": "Chambre",
+                "categorie": "Categorie",
+                "type": "Type",
+                "equipement": "Equipement",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

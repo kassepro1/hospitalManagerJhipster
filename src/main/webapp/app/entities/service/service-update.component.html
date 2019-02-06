@@ -32,6 +32,13 @@
                     </div>
                 </div>
 
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalmanagerApp.service.equipement" for="field_equipement">Equipement</label>
+                    <select class="form-control" id="field_equipement" name="equipement" [(ngModel)]="service.equipementId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="equipementOption.id" *ngFor="let equipementOption of equipements; trackBy: trackEquipementById">{{equipementOption.id}}</option>
+                    </select>
+                </div>
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">

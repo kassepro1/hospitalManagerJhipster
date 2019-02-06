@@ -1,13 +1,11 @@
 package com.isi.hospitalmanager.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -31,8 +29,10 @@ public class Service implements Serializable {
     @Column(name = "libelle", nullable = false)
     private String libelle;
 
-    @OneToMany(mappedBy = "service")
-    private Set<Docteur> serviceDocs = new HashSet<>();
+    @ManyToOne
+    @JsonIgnoreProperties("services")
+    private Equipement equipement;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -68,29 +68,17 @@ public class Service implements Serializable {
         this.libelle = libelle;
     }
 
-    public Set<Docteur> getServiceDocs() {
-        return serviceDocs;
+    public Equipement getEquipement() {
+        return equipement;
     }
 
-    public Service serviceDocs(Set<Docteur> docteurs) {
-        this.serviceDocs = docteurs;
+    public Service equipement(Equipement equipement) {
+        this.equipement = equipement;
         return this;
     }
 
-    public Service addServiceDoc(Docteur docteur) {
-        this.serviceDocs.add(docteur);
-        docteur.setService(this);
-        return this;
-    }
-
-    public Service removeServiceDoc(Docteur docteur) {
-        this.serviceDocs.remove(docteur);
-        docteur.setService(null);
-        return this;
-    }
-
-    public void setServiceDocs(Set<Docteur> docteurs) {
-        this.serviceDocs = docteurs;
+    public void setEquipement(Equipement equipement) {
+        this.equipement = equipement;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

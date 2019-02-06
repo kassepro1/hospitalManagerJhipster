@@ -4,6 +4,9 @@ import com.isi.hospitalmanager.HospitalmanagerApp;
 
 import com.isi.hospitalmanager.domain.Service;
 import com.isi.hospitalmanager.repository.ServiceRepository;
+import com.isi.hospitalmanager.service.ServiceService;
+import com.isi.hospitalmanager.service.dto.ServiceDTO;
+import com.isi.hospitalmanager.service.mapper.ServiceMapper;
 import com.isi.hospitalmanager.web.rest.errors.ExceptionTranslator;
 
 import org.junit.Before;
@@ -49,6 +52,12 @@ public class ServiceResourceIntTest {
     private ServiceRepository serviceRepository;
 
     @Autowired
+    private ServiceMapper serviceMapper;
+
+    @Autowired
+    private ServiceService serviceService;
+
+    @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
 
     @Autowired
@@ -67,7 +76,7 @@ public class ServiceResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final ServiceResource serviceResource = new ServiceResource(serviceRepository);
+        final ServiceResource serviceResource = new ServiceResource(serviceService);
         this.restServiceMockMvc = MockMvcBuilders.standaloneSetup(serviceResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)
@@ -99,9 +108,10 @@ public class ServiceResourceIntTest {
         int databaseSizeBeforeCreate = serviceRepository.findAll().size();
 
         // Create the Service
+        ServiceDTO serviceDTO = serviceMapper.toDto(service);
         restServiceMockMvc.perform(post("/api/services")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
-            .content(TestUtil.convertObjectToJsonBytes(service)))
+            .content(TestUtil.convertObjectToJsonBytes(serviceDTO)))
             .andExpect(status().isCreated());
 
         // Validate the Service in the database
@@ -119,11 +129,12 @@ public class ServiceResourceIntTest {
 
         // Create the Service with an existing ID
         service.setId(1L);
+        ServiceDTO serviceDTO = serviceMapper.toDto(service);
 
         // An entity with an existing ID cannot be created, so this API call must fail
         restServiceMockMvc.perform(post("/api/services")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
-            .content(TestUtil.convertObjectToJsonBytes(service)))
+            .content(TestUtil.convertObjectToJsonBytes(serviceDTO)))
             .andExpect(status().isBadRequest());
 
         // Validate the Service in the database
@@ -139,10 +150,11 @@ public class ServiceResourceIntTest {
         service.setNumService(null);
 
         // Create the Service, which fails.
+        ServiceDTO serviceDTO = serviceMapper.toDto(service);
 
         restServiceMockMvc.perform(post("/api/services")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
-            .content(TestUtil.convertObjectToJsonBytes(service)))
+            .content(TestUtil.convertObjectToJsonBytes(serviceDTO)))
             .andExpect(status().isBadRequest());
 
         List<Service> serviceList = serviceRepository.findAll();
@@ -157,10 +169,11 @@ public class ServiceResourceIntTest {
         service.setLibelle(null);
 
         // Create the Service, which fails.
+        ServiceDTO serviceDTO = serviceMapper.toDto(service);
 
         restServiceMockMvc.perform(post("/api/services")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
-            .content(TestUtil.convertObjectToJsonBytes(service)))
+            .content(TestUtil.convertObjectToJsonBytes(serviceDTO)))
             .andExpect(status().isBadRequest());
 
         List<Service> serviceList = serviceRepository.findAll();
@@ -220,10 +233,11 @@ public class ServiceResourceIntTest {
         updatedService
             .numService(UPDATED_NUM_SERVICE)
             .libelle(UPDATED_LIBELLE);
+        ServiceDTO serviceDTO = serviceMapper.toDto(updatedService);
 
         restServiceMockMvc.perform(put("/api/services")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
-            .content(TestUtil.convertObjectToJsonBytes(updatedService)))
+            .content(TestUtil.convertObjectToJsonBytes(serviceDTO)))
             .andExpect(status().isOk());
 
         // Validate the Service in the database
@@ -240,11 +254,12 @@ public class ServiceResourceIntTest {
         int databaseSizeBeforeUpdate = serviceRepository.findAll().size();
 
         // Create the Service
+        ServiceDTO serviceDTO = serviceMapper.toDto(service);
 
         // If the entity doesn't have an ID, it will throw BadRequestAlertException
         restServiceMockMvc.perform(put("/api/services")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
-            .content(TestUtil.convertObjectToJsonBytes(service)))
+            .content(TestUtil.convertObjectToJsonBytes(serviceDTO)))
             .andExpect(status().isBadRequest());
 
         // Validate the Service in the database
@@ -283,5 +298,28 @@ public class ServiceResourceIntTest {
         assertThat(service1).isNotEqualTo(service2);
         service1.setId(null);
         assertThat(service1).isNotEqualTo(service2);
+    }
+
+    @Test
+    @Transactional
+    public void dtoEqualsVerifier() throws Exception {
+        TestUtil.equalsVerifier(ServiceDTO.class);
+        ServiceDTO serviceDTO1 = new ServiceDTO();
+        serviceDTO1.setId(1L);
+        ServiceDTO serviceDTO2 = new ServiceDTO();
+        assertThat(serviceDTO1).isNotEqualTo(serviceDTO2);
+        serviceDTO2.setId(serviceDTO1.getId());
+        assertThat(serviceDTO1).isEqualTo(serviceDTO2);
+        serviceDTO2.setId(2L);
+        assertThat(serviceDTO1).isNotEqualTo(serviceDTO2);
+        serviceDTO1.setId(null);
+        assertThat(serviceDTO1).isNotEqualTo(serviceDTO2);
+    }
+
+    @Test
+    @Transactional
+    public void testEntityFromId() {
+        assertThat(serviceMapper.fromId(42L).getId()).isEqualTo(42);
+        assertThat(serviceMapper.fromId(null)).isNull();
     }
 }
