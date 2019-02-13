@@ -1,8 +1,7 @@
 {
     "global": {
         "title": "Hospitalmanager",
-        "browsehappy":
-            "أنت تستخدم متصفح <strong>قديم</strong> . من فضلك <a href=\"http://browsehappy.com/?locale=en\">قم بتحديث متصفحك</a> لتحسين تجربتك.",
+        "browsehappy": "أنت تستخدم متصفح <strong>قديم</strong> . من فضلك <a href=\"http://browsehappy.com/?locale=en\">قم بتحديث متصفحك</a> لتحسين تجربتك.",
         "menu": {
             "home": "الصفحة الرئيسية",
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
@@ -14,6 +13,20 @@
                 "traitement": "Traitement",
                 "typeTraitement": "Type Traitement",
                 "lit": "Lit",
+                "patient": "Patient",
+                "docteur": "Docteur",
+                "service": "Service",
+                "specialite": "Specialite",
+                "rendezVous": "Rendez Vous",
+                "departement": "Departement",
+                "serviceho": "Serviceho",
+                "batiment": "Batiment",
+                "niveau": "Niveau",
+                "typeChambre": "Type Chambre",
+                "chambre": "Chambre",
+                "categorie": "Categorie",
+                "type": "Type",
+                "equipement": "Equipement",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
@@ -57,8 +70,7 @@
                 "authenticated": {
                     "prefix": "إذا اردت أن ",
                     "link": "تسجل دخولك",
-                    "suffix":
-                        ", يمكنك تجربة الحسابات التجريبية:<br/>- المدير (login=\"admin\" و كلمة المرور=\"admin\") <br/>- المستخدم (login=\"user\" و كلمة المرور=\"user\")."
+                    "suffix": ", يمكنك تجربة الحسابات التجريبية:<br/>- المدير (login=\"admin\" و كلمة المرور=\"admin\") <br/>- المستخدم (login=\"user\" و كلمة المرور=\"user\")."
                 },
                 "register": {
                     "noaccount": "لا تملك حسابا حتى الآن؟",

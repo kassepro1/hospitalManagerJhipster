@@ -1,0 +1,28 @@
+{
+    "hospitalmanagerApp": {
+        "docteur": {
+            "home": {
+                "title": "Docteurs",
+                "createLabel": "Create a new Docteur",
+                "createOrEditLabel": "Create or edit a Docteur"
+            },
+            "created": "A new Docteur is created with identifier {{ param }}",
+            "updated": "A Docteur is updated with identifier {{ param }}",
+            "deleted": "A Docteur is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Docteur {{ id }}?"
+            },
+            "detail": {
+                "title": "Docteur"
+            },
+            "code": "Code",
+            "prenom": "Prenom",
+            "nom": "Nom",
+            "tel": "Tel",
+            "email": "Email",
+            "docteurRv": "Docteur Rv",
+            "service": "Service",
+            "specialite": "Specialite"
+        }
+    }
+}

@@ -1,0 +1,53 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "nom",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "prenom",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "numFiche",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "taille",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "poids",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "tension",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "temperature",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "photo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "resultat",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20181212180007",
+    "dto": "no",
+    "searchEngine": false,
+    "service": "serviceImpl",
+    "entityTableName": "dossier_medical",
+    "jpaMetamodelFiltering": true,
+    "pagination": "no"
+}

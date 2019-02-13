@@ -1,0 +1,74 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hospitalmanagerApp.docteur.home.title">Docteurs</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-docteur" [routerLink]="['/docteur/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="hospitalmanagerApp.docteur.home.createLabel">
+            Create new Docteur
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="docteurs">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="hospitalmanagerApp.docteur.code">Code</span></th>
+            <th><span jhiTranslate="hospitalmanagerApp.docteur.prenom">Prenom</span></th>
+            <th><span jhiTranslate="hospitalmanagerApp.docteur.nom">Nom</span></th>
+            <th><span jhiTranslate="hospitalmanagerApp.docteur.tel">Tel</span></th>
+            <th><span jhiTranslate="hospitalmanagerApp.docteur.email">Email</span></th>
+            <th><span jhiTranslate="hospitalmanagerApp.docteur.service">Service</span></th>
+            <th><span jhiTranslate="hospitalmanagerApp.docteur.specialite">Specialite</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let docteur of docteurs ;trackBy: trackId">
+                <td><a [routerLink]="['/docteur', docteur.id, 'view' ]">{{docteur.id}}</a></td>
+                <td>{{docteur.code}}</td>
+                <td>{{docteur.prenom}}</td>
+                <td>{{docteur.nom}}</td>
+                <td>{{docteur.tel}}</td>
+                <td>{{docteur.email}}</td>
+                <td>
+                    <div *ngIf="docteur.service">
+                        <a [routerLink]="['../service', docteur.service?.id, 'view' ]" >{{docteur.service?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="docteur.specialite">
+                        <a [routerLink]="['../specialite', docteur.specialite?.id, 'view' ]" >{{docteur.specialite?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/docteur', docteur.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/docteur', docteur.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'docteur/'+ docteur.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

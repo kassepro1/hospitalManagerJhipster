@@ -1,0 +1,75 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-dossier-medical-heading" jhiTranslate="hospitalmanagerApp.dossierMedical.home.createOrEditLabel">Create or edit a Dossier Medical</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!dossierMedical.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="dossierMedical.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalmanagerApp.dossierMedical.nom" for="field_nom">Nom</label>
+                    <input type="text" class="form-control" name="nom" id="field_nom"
+                        [(ngModel)]="dossierMedical.nom" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalmanagerApp.dossierMedical.prenom" for="field_prenom">Prenom</label>
+                    <input type="text" class="form-control" name="prenom" id="field_prenom"
+                        [(ngModel)]="dossierMedical.prenom" required/>
+                    <div [hidden]="!(editForm.controls.prenom?.dirty && editForm.controls.prenom?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.prenom?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalmanagerApp.dossierMedical.numFiche" for="field_numFiche">Num Fiche</label>
+                    <input type="text" class="form-control" name="numFiche" id="field_numFiche"
+                        [(ngModel)]="dossierMedical.numFiche" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalmanagerApp.dossierMedical.taille" for="field_taille">Taille</label>
+                    <input type="number" class="form-control" name="taille" id="field_taille"
+                        [(ngModel)]="dossierMedical.taille" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalmanagerApp.dossierMedical.poids" for="field_poids">Poids</label>
+                    <input type="number" class="form-control" name="poids" id="field_poids"
+                        [(ngModel)]="dossierMedical.poids" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalmanagerApp.dossierMedical.tension" for="field_tension">Tension</label>
+                    <input type="text" class="form-control" name="tension" id="field_tension"
+                        [(ngModel)]="dossierMedical.tension" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalmanagerApp.dossierMedical.temperature" for="field_temperature">Temperature</label>
+                    <input type="text" class="form-control" name="temperature" id="field_temperature"
+                        [(ngModel)]="dossierMedical.temperature" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalmanagerApp.dossierMedical.photo" for="field_photo">Photo</label>
+                    <input type="text" class="form-control" name="photo" id="field_photo"
+                        [(ngModel)]="dossierMedical.photo" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalmanagerApp.dossierMedical.resultat" for="field_resultat">Resultat</label>
+                    <input type="text" class="form-control" name="resultat" id="field_resultat"
+                        [(ngModel)]="dossierMedical.resultat" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

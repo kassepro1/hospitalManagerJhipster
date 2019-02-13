@@ -1,0 +1,33 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="niveau">
+            <h2><span jhiTranslate="hospitalmanagerApp.niveau.detail.title">Niveau</span> {{niveau.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hospitalmanagerApp.niveau.niveau">Niveau</span></dt>
+                <dd>
+                    <span>{{niveau.niveau}}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalmanagerApp.niveau.batiment">Batiment</span></dt>
+                <dd>
+                    <div *ngIf="niveau.batiment">
+                        <a [routerLink]="['/batiment', niveau.batiment?.id, 'view']">{{niveau.batiment?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/niveau', niveau.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

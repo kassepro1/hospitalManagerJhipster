@@ -11,10 +11,32 @@
     <include file="config/liquibase/changelog/20181121174824_added_entity_Traitement.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20181121174825_added_entity_TypeTraitement.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20181121174826_added_entity_Lit.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181128185738_added_entity_Patient.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181128185739_added_entity_Docteur.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181128185740_added_entity_Service.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181128185741_added_entity_Specialite.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181128185742_added_entity_RendezVous.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181219101229_added_entity_Departement.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181219101230_added_entity_Serviceho.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181219101231_added_entity_Batiment.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181219101232_added_entity_Niveau.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181219101233_added_entity_TypeChambre.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181219101234_added_entity_Chambre.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190206120138_added_entity_Categorie.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190206120139_added_entity_Type.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190206120140_added_entity_Equipement.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20181121174821_added_entity_constraints_Hospitalisation.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20181121174823_added_entity_constraints_FeuilleSurveillance.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20181121174824_added_entity_constraints_Traitement.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20181121174826_added_entity_constraints_Lit.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181128185739_added_entity_constraints_Docteur.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181128185742_added_entity_constraints_RendezVous.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181219101230_added_entity_constraints_Serviceho.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181219101231_added_entity_constraints_Batiment.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181219101232_added_entity_constraints_Niveau.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181219101234_added_entity_constraints_Chambre.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190206120139_added_entity_constraints_Type.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181128185740_added_entity_constraints_Service.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>
